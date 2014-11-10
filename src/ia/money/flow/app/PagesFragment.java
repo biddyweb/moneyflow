@@ -1,6 +1,6 @@
 package ia.money.flow.app;
 
-import info.androidhive.slidingmenu.R;
+import ia.money.flow.app.gen.R;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,7 +1,7 @@
 package ia.money.flow.app.adapter;
 
+import ia.money.flow.app.gen.R;
 import ia.money.flow.app.model.NavDrawerItem;
-import info.androidhive.slidingmenu.R;
 
 import java.util.ArrayList;
 
