@@ -84,4 +84,6 @@ public class DatabaseClient extends SQLiteOpenHelper {
         // create new tables
         onCreate(db);
     }
+    
+    
 }

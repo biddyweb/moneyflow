@@ -8,6 +8,9 @@ public class Income {
 	int categoryIncomeId;
 	String date;
 	
+	public Income(){
+		
+	}
 	public Income(int id,double incomeSum, String incomeComment, int categoryIncomeId, String date) {
 		super();
 		this.id = id;
