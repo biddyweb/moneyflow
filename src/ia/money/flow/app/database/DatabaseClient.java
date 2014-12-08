@@ -3,6 +3,7 @@ package ia.money.flow.app.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * 
@@ -39,32 +40,35 @@ public class DatabaseClient extends SQLiteOpenHelper {
 	
     /* Table Create Statements */
     // category_income table create statement
-    private static final String CREATE_TABLE_CATEGORY_INCOME = "CREATE TABLE "
+    private static final String CREATE_TABLE_CATEGORY_INCOME = "CREATE TABLE IF NOT EXISTS "
             + TABLE_CATEGORY_INCOME + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME
             + " TEXT )";
  
     // category_outcome table create statement
-    private static final String CREATE_TABLE_CATEGORY_OUTCOME = "CREATE TABLE " + TABLE_CATEGORY_OUTCOME
+    private static final String CREATE_TABLE_CATEGORY_OUTCOME = "CREATE TABLE IF NOT EXISTS " + TABLE_CATEGORY_OUTCOME
             + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT )";
  
+    
     // income table create statement
-    private static final String CREATE_TABLE_INCOME = "CREATE TABLE " + TABLE_INCOME
+    private static final String CREATE_TABLE_INCOME = "CREATE TABLE IF NOT EXISTS " + TABLE_INCOME
             + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_INCOME_SUM + " REAL, " + KEY_INCOME_COMMENT + " TEXT," +
-    		KEY_INCOME_CATEGORY_ID + "INTEGER, " + KEY_DATE + " DATETIME )";
+    		KEY_INCOME_CATEGORY_ID + " INTEGER, " + KEY_DATE + " DATETIME )";
     
     // outcome table create statement
-    private static final String CREATE_TABLE_OUTCOME = "CREATE TABLE " + TABLE_OUTCOME
+    private static final String CREATE_TABLE_OUTCOME = "CREATE TABLE IF NOT EXISTS " + TABLE_OUTCOME
             + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_OUTCOME_SUM + " REAL, " + KEY_OUTCOME_COMMENT + " TEXT," +
-            KEY_OUTCOME_CATEGORY_ID + "INTEGER, " + KEY_DATE + " DATETIME )";
+            KEY_OUTCOME_CATEGORY_ID + " INTEGER, " + KEY_DATE + " DATETIME )";
  
+    private SQLiteDatabase db;
     
     public DatabaseClient(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        db = getWritableDatabase();
+        this.onCreate(db);
     }
  
     @Override
     public void onCreate(SQLiteDatabase db) {
- 
         // creating required tables
         db.execSQL(CREATE_TABLE_CATEGORY_INCOME);
         db.execSQL(CREATE_TABLE_CATEGORY_OUTCOME);

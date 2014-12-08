@@ -4,14 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:text="Add expense" />
+
     <TextView
         android:id="@+id/txtLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginRight="79dp"
+        android:layout_marginTop="38dp"
         android:text="Your current balance"
         android:textSize="16dp" />
 
@@ -19,46 +29,19 @@
         android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/txtLabel"
-        android:layout_marginRight="42dp"
+        android:layout_below="@+id/txtLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
         android:text="Balance" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/button3"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="14dp"
         android:text="Add income" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:text="Add expense" />
-
-    <TextView
-        android:id="@+id/latestexpenses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtLabel"
-        android:layout_below="@+id/txtLabel"
-        android:layout_marginTop="43dp"
-        android:text="Latest expenses" />
-
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/button1"
-        android:layout_below="@id/latestexpenses"
-        android:divider="@color/list_divider"
-        tools:listitem="@android:layout/simple_list_item_1" >
-
-    </ListView>
 
 </RelativeLayout>

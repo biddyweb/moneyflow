@@ -13,15 +13,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class IncomeDB extends SQLiteOpenHelper {
 	
 	private static final String KEY_DATE = "date";
-
-	private static final String KEY_CATEGORY = "category";
-
+	private static final String KEY_CATEGORY = "category_id";
 	private static final String KEY_INCOME_COMMENT = "income_comment";
-
 	private static final String KEY_INCOME_SUM = "income_sum";
-
 	private static final String KEY_ID = "id";
-
 	private static final String TABLE_INCOME = "income";
 
 	// Database Version
@@ -29,7 +24,8 @@ public class IncomeDB extends SQLiteOpenHelper {
  
     // Database Name
     private static final String DATABASE_NAME = "moneyflow";
-	 
+	
+    
 	public IncomeDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
