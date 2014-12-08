@@ -1,14 +1,20 @@
 package ia.money.flow.app;
 
 import ia.money.flow.app.adapter.NavDrawerListAdapter;
+import ia.money.flow.app.database.DatabaseClient;
+import ia.money.flow.app.database.IncomeDB;
 import ia.money.flow.app.gen.R;
+import ia.money.flow.app.model.Income;
 import ia.money.flow.app.model.NavDrawerItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -20,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
@@ -43,7 +50,53 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		DatabaseClient db = new DatabaseClient(this);
+        IncomeDB incomedb = new IncomeDB(this);
+        /**
+         * CRUD Operations
+         * */
+        // Inserting income
+        Log.d("Insert: ", "Inserting .."); 
+        
+        incomedb.insertIncome(new Income(1, 100, "komentar", 1, "30.11.2014"));        
+        incomedb.insertIncome(new Income(2, 50, "komentar", 1, "31.11.2014")); 
+        
+        // Reading all incomes
+        Log.d("Reading: ", "Reading all incomes.."); 
+        List<Income> incomes = incomedb.getIncomes();       
+        
+        for (Income cn : incomes) {
+            String log = "Id: "+cn.getId()+" ,Category id: " + cn.getCategoryIncomeId() + " ,Date: " + cn.getDate();
+                // Writing Contacts to log
+        Log.d("Name: ", log);
+        
+       
+        }
+        
+        AlertDialog alertDialog = new AlertDialog.Builder(
+                MainActivity.this).create();
 
+		// Setting Dialog Title
+		alertDialog.setTitle("Alert Dialog test");
+		
+		// Setting Dialog Message
+		alertDialog.setMessage("Welcome dialog ");
+		
+		// Setting Icon to Dialog
+		alertDialog.setIcon(R.drawable.ic_home);
+		
+		// Setting OK Button
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+		        public void onClick(DialogInterface dialog, int which) {
+		        // Write your code here to execute after dialog closed
+		        Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+		        }
+		});
+		
+		// Showing Alert Message
+		alertDialog.show();
+		
 		mTitle = mDrawerTitle = getTitle();
 
 		// load slide menu items
