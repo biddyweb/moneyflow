@@ -280,5 +280,10 @@ public class MainActivity extends Activity {
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
+	
+	public void addExspense(View view) {
+		
+		Log.e("ines", "ffffff");
+	}
 
 }
