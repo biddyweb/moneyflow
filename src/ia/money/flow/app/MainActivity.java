@@ -74,29 +74,6 @@ public class MainActivity extends Activity {
        
         }
         
-        AlertDialog alertDialog = new AlertDialog.Builder(
-                MainActivity.this).create();
-
-		// Setting Dialog Title
-		alertDialog.setTitle("Alert Dialog test");
-		
-		// Setting Dialog Message
-		alertDialog.setMessage("Welcome dialog ");
-		
-		// Setting Icon to Dialog
-		alertDialog.setIcon(R.drawable.ic_home);
-		
-		// Setting OK Button
-		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-		        public void onClick(DialogInterface dialog, int which) {
-		        // Write your code here to execute after dialog closed
-		        Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
-		        }
-		});
-		
-		// Showing Alert Message
-		alertDialog.show();
-		
 		mTitle = mDrawerTitle = getTitle();
 
 		// load slide menu items
