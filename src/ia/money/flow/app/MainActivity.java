@@ -259,10 +259,15 @@ public class MainActivity extends Activity {
 	}
 	
 	public void addExspense(View view) {
-		Log.d("addExspense method from MainActivity", "showing dialog to insert income");
-		 InsertIncomeDialog dialog = new InsertIncomeDialog();
-	     dialog.show(this.getFragmentManager(), "insert dialog");
-	     
+		Log.d("addExspense method from MainActivity", "showing dialog to insert exspense");
+		   
+	}
+	
+	public void addIncome(View view){
+		Log.d("addIncome method from MainActivity", "showing dialog to insert income");
+		
+		InsertIncomeDialog dialog = new InsertIncomeDialog();
+	    dialog.show(this.getFragmentManager(), "insert dialog");
 	}
 
 }
