@@ -257,5 +257,12 @@ public class MainActivity extends Activity {
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
+	
+	public void addExspense(View view) {
+		Log.d("addExspense method from MainActivity", "showing dialog to insert income");
+		 InsertIncomeDialog dialog = new InsertIncomeDialog();
+	     dialog.show(this.getFragmentManager(), "insert dialog");
+	     
+	}
 
 }
